@@ -17,10 +17,6 @@ use function Termwind\render;
 */
 
 
-Route::get('/', function () {
-    return redirect()->route('homePage');
-});
-
 // Landing pages (no authentication required)
 Route::get('/home', [App\Http\Controllers\LandingPage::class, 'homePage'])->name('homePage');
 Route::get('/about', [App\Http\Controllers\LandingPage::class, 'aboutPage'])->name('aboutPage');
@@ -39,7 +35,7 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], base_pat
 
 
 // Custom Login route
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+// Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 // Route::post('/login', [LoginController::class, 'login']);
 
 // Welcome page (optional)

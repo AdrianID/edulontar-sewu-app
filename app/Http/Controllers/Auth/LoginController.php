@@ -9,15 +9,15 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    /**
-     * Show the login form.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showLoginForm()
-    {
-        return view('auth.login'); // Mengarahkan ke views/auth/login.blade.php
-    }
+    // /**
+    //  * Show the login form.
+    //  *
+    //  * @return \Illuminate\View\View
+    //  */
+    // public function showLoginForm()
+    // {
+    //     return view('auth.login'); // Mengarahkan ke views/auth/login.blade.php
+    // }
 
     // /**
     //  * Handle an authentication attempt.

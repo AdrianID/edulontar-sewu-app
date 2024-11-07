@@ -14,7 +14,7 @@
 
     <!-- Promo Section -->
     <section class="px-4 py-10">
-      <div class="bg-gradient-to-r mb-8 mt-10 from-blue-500 to-purple-600 py-10 rounded-lg shadow-lg">
+      <div class="bg-[#004A27] mb-8 mt-10 py-10 rounded-lg shadow-lg">
         <h1 class="text-5xl font-extrabold text-center text-white mb-4">Our Latest Promotions</h1>
         <p class="text-lg text-center text-white">Don't miss out on our exclusive deals and offers!</p>
       </div>

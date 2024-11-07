@@ -39,7 +39,7 @@
         <button type="submit" class="w-full bg-green-700 text-white py-3 rounded-lg shadow-lg hover:bg-green-600 transition-colors">Send Message</button>
       </form>
     </section>
-    <section class="text-center py-12 px-4">
+    {{-- <section class="text-center py-12 px-4">
       <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
       <div class="mt-8">
         <div class="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90">
@@ -55,9 +55,6 @@
           <p class="mt-2 text-gray-700">Yes, we offer telemedicine consultations.</p>
         </div>
       </div>
-    </section>
-    <footer class="bg-green-700 text-white text-center py-8">
-      <p>&copy; Copyright Your Company Name 2024 . All rights reserved. Made By Binary Boats⛵.</p>
-    </footer>
+    </section> --}}
   </div>
 </div>

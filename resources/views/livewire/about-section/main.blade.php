@@ -122,8 +122,5 @@
           </div>
         </section>
   
-        <footer class="bg-green-500 text-white text-center py-8">
-          <p>&copy; Copyright [Your Name] . All rights reserved. Made By Binary Boats⛵</p>
-        </footer>
       </div>
 </div>

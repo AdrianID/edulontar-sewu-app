@@ -17,7 +17,7 @@
     <h2 class="text-3xl font-bold text-gray-800 text-center mb-8" data-aos="fade-up">Latest News</h2>
     <div class="news-carousel relative w-full overflow-hidden">
         <!-- Carousel Wrapper -->
-        <div class="carousel flex transition-transform ease-linear duration-500">
+        <div class="carousel flex transition-transform ease-linear duration-500" id="carousel-news">
             <!-- Card Structure Remains Same -->
             <!-- Repeat Cards Here (Add as many as you need) -->
             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
@@ -27,49 +27,20 @@
             </div>
             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
                 <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
+                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 2</h3>
                 <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
             </div>
             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
                 <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
+                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 3</h3>
                 <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
             </div>
             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
                 <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
+                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 4</h3>
                 <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
             </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
+             
             <!-- Add more cards... -->
         </div>
     </div>
@@ -92,9 +63,18 @@
       var carousel = $('.carousel');
       var itemWidth = $('.carousel-item').outerWidth(true);
       var totalItems = $('.carousel-item').length;
+      console.log(totalItems)
+      console.log(itemWidth)
+      if(totalItems <= 4){
+        $('#nextNewsBtn').hide();
+        $('#prevNewsBtn').hide();
+
+        $('#carousel-news').css('justify-content','center').css('width', 'inherit');;
+      }else{
+          $('.carousel').append($('.carousel').html());
+        }
   
       // Clone the first set of items for infinite scrolling
-      $('.carousel').append($('.carousel').html());
   
       // Initialize position
       var currentPosition = 0;
@@ -102,14 +82,14 @@
   
       // Handle the next button click
       $('#nextNewsBtn').click(function(){
-          if (!isMoving) {
+          if (!isMoving && totalItems > 4) {
               isMoving = true;
               currentPosition -= itemWidth;
               carousel.css('transition', 'transform 0.5s ease');
               carousel.css('transform', 'translateX(' + currentPosition + 'px)');
   
               setTimeout(function(){
-                  if (Math.abs(currentPosition) >= itemWidth * totalItems) {
+                  if (Math.abs(currentPosition) >= (itemWidth) * totalItems) {
                       currentPosition = 0;
                       carousel.css('transition', 'none');
                       carousel.css('transform', 'translateX(0)');

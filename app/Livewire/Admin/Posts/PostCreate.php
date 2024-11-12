@@ -1,24 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Livewire\Admin\Posts;
 
 use App\Livewire\TrixEditor;
-use App\Models\Post;
 use App\Models\Posts;
 use Illuminate\Http\Request;
+use Livewire\Component;
 
-class PostsController extends Controller
+class PostCreate extends Component
 {
+
     public $title;
-    public $body;
+    public $body ;
 
     public $listeners = [
-        TrixEditor::EVENT_VALUE_UPDATED // trix_value_updated()
+        TrixEditor::EVENT_VALUE_UPDATED
     ];
-
-    public function showCreatePosts(){
-        return view('livewire.admin.posts.post-create');
-    }
 
     public function trix_value_updated($value){
         $this->body = $value;
@@ -89,5 +86,9 @@ class PostsController extends Controller
     {
         $post->delete();
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+    }
+    public function render()
+    {
+        return view('livewire.admin.posts.post-create');
     }
 }

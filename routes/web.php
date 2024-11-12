@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingsController;
+use App\Livewire\Admin\Posts\PostCreate;
 use Illuminate\Support\Facades\Route;
 
 use function Termwind\render;
@@ -52,6 +53,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
     })->name('dashboard');
+    Route::get('/posts/create', PostCreate::class)->name('post.create');
 
     Route::get('/booking', [BookingsController::class, 'create'])->name('booking.form');
     Route::post('/booking', [BookingsController::class, 'store'])->name('booking.submit');

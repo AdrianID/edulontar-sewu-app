@@ -31,10 +31,13 @@
                 <x-layout.sub.sidebar-item label="{{ __('Dashboard') }}" icon="fa-solid fa-gauge"
                     route="{{ route('dashboard') }}" />
 
-                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Pages') }}" icon="fa-solid fa-pager">
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Settings') }}" route="#" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Kanban') }}" route="#" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Calendar') }}" route="#" />
+                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Carousel') }}" icon="fa-solid fa-pager">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('post.create')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="#" />
+                </x-layout.sub.sidebar-collapse>
+                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('News') }}" icon="fa-solid fa-pager">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add News') }}" route="#" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View News') }}" route="#" />
                 </x-layout.sub.sidebar-collapse>
 
 

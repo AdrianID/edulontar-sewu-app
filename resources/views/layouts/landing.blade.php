@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') | Lontar Sewu</title>
+    {{-- <title>@yield('title') | Lontar Sewu</title> --}}
+    {{-- <title>@yield('title') | Lontar Sewu</title> --}}
     @vite('resources/css/app.css')
     @yield('css')
 </head>
@@ -14,7 +15,10 @@
     @livewire('components.navbar')
     
     <!-- Content Section -->
-    @yield('content')
+    {{-- @yield('content') --}}
+    <div>
+        {{ $slot }}
+    </div>
     <!-- Content Section -->
     
     {{-- @livewire('main-page') --}}

@@ -35,16 +35,24 @@
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('post.create')}}" />
                     <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="#" />
                 </x-layout.sub.sidebar-collapse>
-                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('News') }}" icon="fa-solid fa-pager">
+                <x-layout.sub.sidebar-collapse id="News" label="{{ __('News') }}" icon="fa-solid fa-pager">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add News') }}" route="#" />
                     <x-layout.sub.sidebar-collapse-item label="{{ __('View News') }}" route="#" />
                 </x-layout.sub.sidebar-collapse>
-
-
-                <x-layout.sub.sidebar-collapse id="sa" label="{{ __('Sales') }}"
+                <x-layout.sub.sidebar-collapse id="promo" label="{{ __('Promo') }}"
                     icon="fa-solid fa-pagerfa-solid fa-sack-dollar">
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Products') }}" route="#" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Billings') }}" route="#" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Promo') }}" route="{{route('post.promo')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Promo') }}" route="#" />
+                </x-layout.sub.sidebar-collapse>
+                <x-layout.sub.sidebar-collapse id="wahana" label="{{ __('Wahana') }}"
+                    icon="fa-solid fa-pagerfa-solid fa-sack-dollar">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Wahana') }}" route="{{route('post.wahana')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Wahana') }}" route="#" />
+                </x-layout.sub.sidebar-collapse>
+                <x-layout.sub.sidebar-collapse id="fasilitas" label="{{ __('Fasilitas') }}"
+                    icon="fa-solid fa-pagerfa-solid fa-sack-dollar">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Fasiltias') }}" route="{{route('post.fasilitas')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasiltias') }}" route="#" />
                 </x-layout.sub.sidebar-collapse>
             </ul>
 

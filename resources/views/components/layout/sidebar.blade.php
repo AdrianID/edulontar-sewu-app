@@ -30,10 +30,12 @@
 
                 <x-layout.sub.sidebar-item label="{{ __('Dashboard') }}" icon="fa-solid fa-gauge"
                     route="{{ route('dashboard') }}" />
+                <x-layout.sub.sidebar-item label="{{ __('Home') }}" icon="fa-solid fa-gauge"
+                    route="{{ route('home') }}" />
 
                 <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Carousel') }}" icon="fa-solid fa-pager">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('post.create')}}" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="#" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="{{route('post.index')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="News" label="{{ __('News') }}" icon="fa-solid fa-pager">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add News') }}" route="#" />

@@ -9,6 +9,8 @@ use App\Livewire\AboutSection\Main as AboutSectionMain;
 use App\Livewire\Admin\Fasilitas\PostFasilitas;
 use App\Livewire\Admin\Promo\PostPromo;
 use App\Livewire\Admin\Wahana\PostWahana;
+use App\Livewire\Admin\Home;
+use App\Livewire\Admin\Posts\PostIndex;
 use App\Livewire\FasilitasSection\Main as FasilitasSectionMain;
 use App\Livewire\HeroSection\Main as HeroSectionMain;
 use App\Livewire\NewsSection\Main as NewsSectionMain;
@@ -71,6 +73,9 @@ Route::middleware([
     Route::get('/posts/promo', PostPromo::class)->name('post.promo');
     Route::get('/posts/wahana', PostWahana::class)->name('post.wahana');
     Route::get('/posts/fasilitas', PostFasilitas::class)->name('post.fasilitas');
+    Route::get('/admin/home', Home::class)->name('home');
+    Route::get('/admin/posts/create', PostCreate::class)->name('post.create');
+    Route::get('/admin/posts/index', PostIndex::class)->name('post.index');
 
     Route::get('/table', UserTable::class)->name('tableTest');
     Route::get('/booking', [BookingsController::class, 'create'])->name('booking.form');

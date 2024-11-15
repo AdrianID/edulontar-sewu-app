@@ -6,6 +6,8 @@ use App\Livewire\UserTable;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Livewire\HeroSection\Main;
 use App\Livewire\AboutSection\Main as AboutSectionMain;
+use App\Livewire\Admin\Home;
+use App\Livewire\Admin\Posts\PostIndex;
 use App\Livewire\FasilitasSection\Main as FasilitasSectionMain;
 use App\Livewire\HeroSection\Main as HeroSectionMain;
 use App\Livewire\NewsSection\Main as NewsSectionMain;
@@ -64,7 +66,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
     })->name('dashboard');
-    Route::get('/posts/create', PostCreate::class)->name('post.create');
+    Route::get('/admin/home', Home::class)->name('home');
+    Route::get('/admin/posts/create', PostCreate::class)->name('post.create');
+    Route::get('/admin/posts/index', PostIndex::class)->name('post.index');
 
     Route::get('/table', UserTable::class)->name('tableTest');
     Route::get('/booking', [BookingsController::class, 'create'])->name('booking.form');

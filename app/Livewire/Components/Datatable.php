@@ -48,9 +48,9 @@ class Datatable extends DataTableComponent
     {
         return array_merge(
             array_map(function ($col) {
-                if ($col['type']) {
+                if ($col['type'] == 'image') {
                     return Column::make($col['label'], $col['field'])
-                        ->format(fn($value, $row) => "<img src='{$row->{$col['field']}}' class='w-12 h-12 rounded' alt='Image' />")
+                        ->format(fn($value, $row) => "<img src='" . asset('storage/'.$row->{$col['field']}) . "' class='w-50 h-20 rounded' alt='Image' />")
                         ->html();
                 }
                 return Column::make($col['label'], $col['field'])->sortable();

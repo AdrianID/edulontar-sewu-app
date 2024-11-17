@@ -56,6 +56,11 @@
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Fasiltias') }}" route="{{route('post.fasilitas')}}" />
                     <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasiltias') }}" route="#" />
                 </x-layout.sub.sidebar-collapse>
+                <x-layout.sub.sidebar-collapse id="toko" label="{{ __('Toko') }}"
+                    icon="fa-solid fa-pagerfa-solid fa-sack-dollar">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Toko') }}" route="{{route('post.toko')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Toko') }}" route="{{route('view.toko')}}" />
+                </x-layout.sub.sidebar-collapse>
             </ul>
 
             <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">

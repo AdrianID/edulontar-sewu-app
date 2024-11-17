@@ -11,6 +11,9 @@ use App\Livewire\Admin\Promo\PostPromo;
 use App\Livewire\Admin\Wahana\PostWahana;
 use App\Livewire\Admin\Home;
 use App\Livewire\Admin\Posts\PostIndex;
+use App\Livewire\Admin\Toko\EditToko;
+use App\Livewire\Admin\Toko\PostToko;
+use App\Livewire\Admin\Toko\ViewToko;
 use App\Livewire\FasilitasSection\Main as FasilitasSectionMain;
 use App\Livewire\HeroSection\Main as HeroSectionMain;
 use App\Livewire\NewsSection\Main as NewsSectionMain;
@@ -18,6 +21,7 @@ use App\Livewire\PromoSection\Main as PromoSectionMain;
 use App\Livewire\TokoSection\Main as TokoSectionMain;
 use App\Livewire\WahanaSection\Main as WahanaSectionMain;
 use App\Livewire\ContactSection\Main as ContactSectionMain;
+use App\Models\Produk;
 
 use function Termwind\render;
 
@@ -73,6 +77,12 @@ Route::middleware([
     Route::get('/posts/promo', PostPromo::class)->name('post.promo');
     Route::get('/posts/wahana', PostWahana::class)->name('post.wahana');
     Route::get('/posts/fasilitas', PostFasilitas::class)->name('post.fasilitas');
+    Route::get('/posts/toko', PostToko::class)->name('post.toko');
+    
+    Route::get('/admin/view/toko', ViewToko::class)->name('view.toko');
+
+    Route::get('/admin/edit/toko/{id}', EditToko::class)->name('edit.toko');
+
     Route::get('/admin/home', Home::class)->name('home');
     Route::get('/admin/posts/create', PostCreate::class)->name('post.create');
     Route::get('/admin/posts/index', PostIndex::class)->name('post.index');

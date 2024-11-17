@@ -278,7 +278,6 @@
             class="p-4 lg:ml-0 h-auto pt-20">
             {{ $slot }}
         </main>
-
     </div>
 
     @stack('modals')
@@ -320,7 +319,6 @@
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
-
     @livewireScriptConfig
 </body>
 

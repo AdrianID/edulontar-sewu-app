@@ -41,7 +41,7 @@ class UserTable extends DataTableComponent
                 ];
             })
             ->buttons([
-                LinkColumn::make('View') // make() has no effect in this case but needs to be set anyway
+                LinkColumn::make('View')
                     ->title(fn($row) => '')
                     ->location(fn($row) => route('homePage', $row))
                     ->attributes(function($row) {

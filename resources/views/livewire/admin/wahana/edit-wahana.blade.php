@@ -13,8 +13,24 @@
                 placeholder="Enter post title"
             />
         </div>
+
+        <div class="mb-4">
+            <label for="existing-cover" class="block text-sm font-medium text-gray-700 mb-2">Existing Cover Image</label>
+            @if ($existingImage)
+                <img src="{{ asset('storage/images/' . $existingImage) }}" alt="Cover Image" class="h-40 mb-4">
+            @endif
+
+            <label for="cover_image" class="block text-sm font-medium text-gray-700 mb-1">Upload New Cover Image</label>
+            <input
+                type="file"
+                id="cover_image"
+                wire:model="gambar_wahana"
+                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 focus:ring-blue-500 focus:border-blue-500"
+            />
+            <p class="mt-2 text-sm text-gray-600">Max size: 2MB. Formats: JPG, PNG, SVG.</p>
+        </div>
     
-        <!-- Cover Image Upload -->
+        {{-- <!-- Cover Image Upload -->
         <div>
             <h3 class="text-lg font-medium text-gray-800 mb-4">Unggah Gambar Baru</h3>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
@@ -25,24 +41,18 @@
                     type="file"
                     id="cover-image"
                     wire:model="gambar_wahana"
-                    required
                     class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 focus:ring-blue-500 focus:border-blue-500"
                 />
                 <p class="mt-2 text-sm text-gray-600">Maksimal ukuran file: 2MB. Format: JPG, PNG, SVG.</p>
             </div>
-        </div>
+        </div> --}}
     
         <!-- Content Editor -->
-        {{-- <div class="mb-6">
+        <div class="mb-6">
             <label for="deskripsi_wahana" class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Produk</label>
             <input id="deskripsi_wahana" type="hidden" name="content" value="{{ $deskripsi_wahana }}">
             <trix-editor input="deskripsi_wahana"></trix-editor>
-        </div> --}}
-        <div class="mb-6">
-            <label for="deskripsi_wahana" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Wahana</label>
-            <textarea  wire:model="deskripsi_wahana" id="deskripsi_wahana" name="content" rows="6" class="block w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tulis deskripsi wahana di sini...">{{ $deskripsi_wahana }}</textarea>
         </div>
-        
     
         <!-- Submit Button -->
         <div class="flex justify-end">
@@ -53,7 +63,7 @@
                 Publish Post
             </button>
         </div>
-
+        
         @if (session()->has('message'))
         <div id="success-notification" class="fixed top-14 z-50 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
             {{ session('message') }}

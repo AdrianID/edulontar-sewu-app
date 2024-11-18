@@ -49,7 +49,7 @@
     
     <footer class="bg-[#82BB3A] text-[#006400] py-6">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 TourismSite. All rights reserved.</p>
+            <p>&copy; 2024 LontarSewu Tourism. All rights reserved.</p>
         </div>
     </footer>
     {{-- footer --}}

@@ -7,13 +7,18 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Livewire\HeroSection\Main;
 use App\Livewire\AboutSection\Main as AboutSectionMain;
 use App\Livewire\Admin\Fasilitas\PostFasilitas;
-use App\Livewire\Admin\Promo\PostPromo;
 use App\Livewire\Admin\Wahana\PostWahana;
 use App\Livewire\Admin\Home;
 use App\Livewire\Admin\Posts\PostIndex;
+
 use App\Livewire\Admin\Toko\EditToko;
 use App\Livewire\Admin\Toko\PostToko;
 use App\Livewire\Admin\Toko\ViewToko;
+
+use App\Livewire\Admin\Promo\PostPromo;
+use App\Livewire\Admin\Promo\EditPromo;
+use App\Livewire\Admin\Promo\ViewPromo;
+
 use App\Livewire\FasilitasSection\Main as FasilitasSectionMain;
 use App\Livewire\HeroSection\Main as HeroSectionMain;
 use App\Livewire\NewsSection\Main as NewsSectionMain;
@@ -74,14 +79,17 @@ Route::middleware([
         return view('pages.dashboard');
     })->name('dashboard');
     Route::get('/posts/create', PostCreate::class)->name('post.create');
-    Route::get('/posts/promo', PostPromo::class)->name('post.promo');
     Route::get('/posts/wahana', PostWahana::class)->name('post.wahana');
     Route::get('/posts/fasilitas', PostFasilitas::class)->name('post.fasilitas');
-    Route::get('/posts/toko', PostToko::class)->name('post.toko');
     
+    Route::get('/posts/promo', PostPromo::class)->name('post.promo');
+    Route::get('/posts/toko', PostToko::class)->name('post.toko');
+
     Route::get('/admin/view/toko', ViewToko::class)->name('view.toko');
+    Route::get('/admin/view/promo', ViewPromo::class)->name('view.promo');
 
     Route::get('/admin/edit/toko/{id}', EditToko::class)->name('edit.toko');
+    Route::get('/admin/edit/promo/{id}', EditPromo::class)->name('edit.promo');
 
     Route::get('/admin/home', Home::class)->name('home');
     Route::get('/admin/posts/create', PostCreate::class)->name('post.create');

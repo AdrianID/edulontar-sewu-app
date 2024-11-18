@@ -26,58 +26,57 @@
             <p class="text-lg text-center text-white">Don't miss out on our exclusive deals and offers!</p>
           </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Promo Card 1 -->
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/150" alt="Promo 1" class="w-full h-40 object-cover rounded-md">
-                    <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 1</h2>
-                    <p class="text-gray-600 mt-2">This is a short description of the promo offer. lorem100</p>
-                    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
-                </div>
-                <!-- Promo Card 2 -->
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
-                    <img src="https://i.pinimg.com/control/564x/32/0d/9d/320d9dc62bf146a638b0e2317ce38705.jpg" alt="Promo 2" class="w-full h-40 object-cover rounded-md">
-                    <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 2</h2>
-                    <p class="text-gray-600 mt-2">This is a short description of the promo offer.</p>
-                    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
-                </div>
-                <!-- Promo Card 3 -->
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/150" alt="Promo 3" class="w-full h-40 object-cover rounded-md">
-                    <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 3</h2>
-                    <p class="text-gray-600 mt-2">This is a short description of the promo offer.</p>
-                    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
-                </div>
-                <!-- Promo Card 4 -->
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
+                @foreach($promos as $promo)
+
+                    <div class="promo-card bg-white rounded-xl shadow-md hover:shadow-lg p-6 flex flex-col justify-between transform transition duration-300 hover:scale-105" data-aos="fade-up">
+                        <!-- Gambar -->
+                        <div class="overflow-hidden rounded-xl relative">
+                            <img src="{{ asset('storage/images/' . $promo->cover_image) }}" 
+                                 alt="{{ $promo->title }}" 
+                                 class="w-full h-56 object-cover">
+                            <!-- Badge Diskon -->
+                            <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-full shadow-md">
+                                Diskon {{ $promo->discount }}%
+                            </div>
+                        </div>
+                        <!-- Konten -->
+                        <div class="mt-5 flex-1">
+                            <h2 class="text-xl font-semibold text-gray-800 truncate">{{ $promo->title }}</h2>
+                            <!-- Deskripsi dengan HTML -->
+                            <p class="text-sm text-gray-600 mt-3 line-clamp-3">
+                                {!! $promo->description !!}
+                            </p>
+                        </div>
+                        <!-- Harga dan Tombol -->
+                        <div class="mt-5">
+                            <div class="text-lg flex items-center gap-2">
+                                <span class="text-gray-500 line-through">Rp {{ number_format($promo->price, 0, ',', '.') }}</span>
+                                <span class="text-blue-600 font-bold">Rp {{ number_format($promo->discounted_price, 0, ',', '.') }}</span>
+                            </div>
+                            <!-- Tombol -->
+                            <a href="https://wa.me/{{ $promo->whatsapp_number }}" 
+                               class="mt-3 w-full bg-green-500 text-white text-sm font-medium px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition"
+                               target="_blank" rel="noopener noreferrer">
+                                <!-- SVG WhatsApp Icon -->
+                                <p class="text-white" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16" fill="#ffffff"><path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1s-.48.6-.59.73s-.21.14-.4 0a5.1 5.1 0 0 1-1.49-.92a5.3 5.3 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.4 1.4 0 0 0 .18-.31a.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23a2.1 2.1 0 0 0-.65 1.55A3.6 3.6 0 0 0 5 8.2A8.3 8.3 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.5 2.5 0 0 0 1.17.07a1.93 1.93 0 0 0 1.26-.88a1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21"/><path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85l3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72M8 14.12a6.1 6.1 0 0 1-3.15-.87l-.22-.13l-2.34.61l.62-2.28l-.14-.23a6.18 6.18 0 0 1 9.6-7.65a6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12"/></svg>                            
+                                </p>
+                                Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+                
+                @endforeach
+                
+
+                {{-- <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
                     <img src="https://via.placeholder.com/150" alt="Promo 4" class="w-full h-40 object-cover rounded-md">
                     <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 4</h2>
                     <p class="text-gray-600 mt-2">This is a short description of the promo offer.</p>
                     <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                         Learn More
                     </button>
-                </div>
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/150" alt="Promo 4" class="w-full h-40 object-cover rounded-md">
-                    <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 4</h2>
-                    <p class="text-gray-600 mt-2">This is a short description of the promo offer.</p>
-                    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
-                </div>
-                <div class="promo-card bg-white rounded-lg shadow-lg p-5" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/150" alt="Promo 4" class="w-full h-40 object-cover rounded-md">
-                    <h2 class="text-xl font-bold text-gray-800 mt-4">Promo Title 4</h2>
-                    <p class="text-gray-600 mt-2">This is a short description of the promo offer.</p>
-                    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
-                </div>
+                </div> --}}
             </div>
         </section>
     </div>

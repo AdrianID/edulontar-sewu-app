@@ -44,7 +44,7 @@
                 <x-layout.sub.sidebar-collapse id="promo" label="{{ __('Promo') }}"
                     icon="fa-solid fa-pagerfa-solid fa-sack-dollar">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Promo') }}" route="{{route('post.promo')}}" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Promo') }}" route="#" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Promo') }}" route="{{route('view.promo')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="wahana" label="{{ __('Wahana') }}"
                     icon="fa-solid fa-pagerfa-solid fa-sack-dollar">

@@ -21,10 +21,15 @@
 
         <!-- Promo Section -->
         <section class="px-4 py-10">
-          <div class="bg-[#004A27] mb-8 mt-10 py-10 rounded-lg shadow-lg">
-            <h1 class="text-5xl font-extrabold text-center text-white mb-4">Our Latest Promotions</h1>
-            <p class="text-lg text-center text-white">Don't miss out on our exclusive deals and offers!</p>
-          </div>
+            <div class="bg-[#004A27] mb-8 mt-10 py-10 rounded-lg shadow-lg">
+                <h1 class="text-5xl font-extrabold text-center text-white mb-4">Promo Spesial di Lontarsewu!</h1>
+                <p class="text-lg text-center text-white px-6">
+                    Nikmati momen liburan lebih seru dengan penawaran terbaik dari kami! Dapatkan diskon fantastis, paket hemat keluarga, 
+                    dan banyak kejutan lainnya. Jangan lewatkan kesempatan untuk menciptakan kenangan indah bersama orang tercinta. Promo terbatas, 
+                    ayo segera rencanakan kunjunganmu ke Lontarsewu sekarang juga!
+                </p>
+            </div>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach($promos as $promo)
 
@@ -54,7 +59,7 @@
                                 <span class="text-blue-600 font-bold">Rp {{ number_format($promo->discounted_price, 0, ',', '.') }}</span>
                             </div>
                             <!-- Tombol -->
-                            <a href="https://wa.me/{{ $promo->whatsapp_number }}" 
+                            <a href="https://wa.link/hobg99" 
                                class="mt-3 w-full bg-green-500 text-white text-sm font-medium px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition"
                                target="_blank" rel="noopener noreferrer">
                                 <!-- SVG WhatsApp Icon -->

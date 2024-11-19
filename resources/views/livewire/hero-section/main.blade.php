@@ -192,7 +192,7 @@
                 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
                     <div class="max-w-2xl lg:max-w-4xl mx-auto text-center">
                         <h2 class="text-3xl font-extrabold text-gray-900">Visit Our Location</h2>
-                        <p class="mt-4 text-lg text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="mt-4 text-lg text-gray-500">Edu Wisata Lontar Sewu Gresik Jawa Timur</p>
                     </div>
                     <div class="mt-16 lg:mt-20">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -206,18 +206,18 @@
                                 <div class="max-w-full mx-auto rounded-lg overflow-hidden">
                                     <div class="px-6 py-4">
                                         <h3 class="text-lg font-medium text-gray-900">Our Address</h3>
-                                        <p class="mt-1 text-gray-600">123 Main St, San Francisco, CA 94105</p>
+                                        <p class="mt-1 text-gray-600">Wisata Alam & Kuliner Lontar Sewu Gresik. Alamat lokasi: Desa, Hendrosalam, Hendrosari, Kec. Menganti, Kabupaten Gresik, Jawa Timur 61174,</p>
                                     </div>
                                     <div class="border-t border-gray-200 px-6 py-4">
                                         <h3 class="text-lg font-medium text-gray-900">Hours</h3>
-                                        <p class="mt-1 text-gray-600">Monday - Friday: 9am - 5pm</p>
-                                        <p class="mt-1 text-gray-600">Saturday: 10am - 4pm</p>
+                                        <p class="mt-1 text-gray-600">Senin - Sabtu: 09.00 - 21.00</p>
+                                        <p class="mt-1 text-gray-600">Minggu: 07.00 - 21.00</p>
                                         <p class="mt-1 text-gray-600">Sunday: Closed</p>
                                     </div>
                                     <div class="border-t border-gray-200 px-6 py-4">
                                         <h3 class="text-lg font-medium text-gray-900">Contact</h3>
-                                        <p class="mt-1 text-gray-600">Email: info@example.com</p>
-                                        <p class="mt-1 text-gray-600">Phone: +1 23494 34993</p>
+                                        <p class="mt-1 text-gray-600">eduwisatalontarsewu.official@gmail.com</p>
+                                        <p class="mt-1 text-gray-600">Phone: +62 838 590 3781</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,11 +227,11 @@
             </section>
     
         </div>
-        <section id="cta" class="py-16 text-center bg-[#006400] text-white">
+        {{-- <section id="cta" class="py-16 text-center bg-[#006400] text-white">
             <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Ready to Start Your Journey?</h2>
             <p class="mb-6" data-aos="fade-up" data-aos-delay="100">Sign up for our newsletter to get the latest travel deals and tips directly to your inbox.</p>
             <a href="#" class="inline-block bg-white text-[#006400] py-3 px-6 rounded-md hover:bg-gray-200" data-aos="fade-up" data-aos-delay="200">Sign Up Now</a>
-        </section>
+        </section> --}}
     </div>
 </body>
 {{-- @push('js') --}}

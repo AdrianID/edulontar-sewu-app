@@ -1,7 +1,7 @@
 <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
     <h2 class="text-2xl font-semibold text-gray-800 mb-6">Create New Wahana</h2>
 
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="update">
         <!-- Title Input -->
         <div class="mb-4">
             <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>

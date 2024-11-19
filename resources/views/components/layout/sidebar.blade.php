@@ -52,9 +52,9 @@
                     <x-layout.sub.sidebar-collapse-item label="{{ __('View Wahana') }}" route="{{route('view.wahana')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="fasilitas" label="{{ __('Fasilitas') }}"
-                    icon="fa-solid fa-facebook">
+                    icon="fa-solid fa-universal-access">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Fasiltias') }}" route="{{route('post.fasilitas')}}" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasiltias') }}" route="#" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasiltias') }}" route="{{route('view.fasilitas')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="toko" label="{{ __('Toko') }}"
                     icon="fa-solid fa-pagerfa-solid fa-shopping-bag">

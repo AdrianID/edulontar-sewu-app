@@ -32,8 +32,8 @@
                         <!-- Gambar -->
                         <div class="overflow-hidden rounded-xl relative">
                             <img src="{{ asset('storage/images/' . $promo->cover_image) }}" 
-                                 alt="{{ $promo->title }}" 
-                                 class="w-full h-56 object-cover">
+                                alt="{{ $promo->title }}" 
+                                class="w-full h-56 object-cover">
                             <!-- Badge Diskon -->
                             <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-full shadow-md">
                                 Diskon {{ $promo->discount }}%

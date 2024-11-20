@@ -4,88 +4,61 @@ namespace App\Livewire\Admin\Posts;
 
 use App\Livewire\TrixEditor;
 use App\Models\Posts;
+use App\Utils\Toast;
 use Illuminate\Http\Request;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class PostCreate extends Component
 {
+    use WithFileUploads;
 
     public $title;
-    public $body ;
+    public $content;
+    public $slug;
+    public $featured_image;
 
     public $listeners = [
         TrixEditor::EVENT_VALUE_UPDATED
     ];
+    protected $rules = [
+        'title' => 'required|string|max:255',
+        'slug' => 'required|string|max:255|unique:posts',
+        'featured_image' => 'nullable',
+    ];
 
     public function trix_value_updated($value){
-        $this->body = $value;
+        $this->content = $value;
     }
 
-    public function save(){
-        dd([
+    public function store()
+    {
+        if (Posts::where('slug', $this->slug)->exists()) {
+            Toast::warning($this, 'Slug sudah terdaftar pada sistem.');
+            return;
+        }
+        $this->validate();
+
+        $imagePath = null;
+
+        if ($this->featured_image) {
+            $imageName = uniqid() . '.' . $this->featured_image->getClientOriginalExtension();
+            $imagePath = $this->featured_image->storeAs('images', $imageName, 'public');
+        }
+
+        $a = Posts::create([
             'title' => $this->title,
-            'body' => $this->body
+            'slug' => $this->slug,
+            'content' => $this->content,
+            'header_content_image' => $imagePath,
         ]);
-    }
-    public function index()
-    {
-        $posts = Posts::all();
-        return view('posts.index', compact('posts'));
-    }
-
-    public function create()
-    {
-        return view('posts.create');
-    }
-
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|unique:posts',
-            'content' => 'required',
-            'featured_image' => 'nullable|image|max:2048',
-        ]);
-
-        if ($request->hasFile('featured_image')) {
-            $validatedData['featured_image'] = $request->file('featured_image')->store('posts', 'public');
+        if($a){
+            Toast::success($this, 'Post berhasil disimpan.');
+            $this->reset();
+            redirect()->route('post.index');
+        }else{
+            Toast::success($this, 'Post gagal disimpan.');
         }
-
-        Posts::create($validatedData);
-        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
-    }
-
-    public function show(Posts $post)
-    {
-        return view('posts.show', compact('post'));
-    }
-
-    public function edit(Posts $post)
-    {
-        return view('posts.edit', compact('post'));
-    }
-
-    public function update(Request $request, Posts $post)
-    {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|unique:posts,slug,' . $post->id,
-            'content' => 'required',
-            'featured_image' => 'nullable|image|max:2048',
-        ]);
-
-        if ($request->hasFile('featured_image')) {
-            $validatedData['featured_image'] = $request->file('featured_image')->store('posts', 'public');
-        }
-
-        $post->update($validatedData);
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
-    }
-
-    public function destroy(Posts $post)
-    {
-        $post->delete();
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
     public function render()
     {

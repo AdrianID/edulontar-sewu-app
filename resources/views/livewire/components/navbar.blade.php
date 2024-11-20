@@ -31,7 +31,7 @@
             </div>
             <!-- Menu items -->
             <ul id="menu" class="hidden md:flex space-x-4 w-full md:w-auto md:space-x-4 md:flex-nowrap">
-                <li><a href="/home" class="text-[#387F39] font-bold relative">Home<span class="underline-animation"></span></a></li>
+                <li><a href="/" class="text-[#387F39] font-bold relative">Home<span class="underline-animation"></span></a></li>
                 <li><a href="/about" class="text-[#387F39] font-bold relative">About<span class="underline-animation"></span></a></li>
                 <li><a href="/promo" class="text-[#387F39] font-bold relative">Promo<span class="underline-animation"></span></a></li>
                 <li><a href="/wahana" class="text-[#387F39] font-bold relative">Wahana<span class="underline-animation"></span></a></li>

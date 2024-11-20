@@ -8,7 +8,7 @@
 <script>
     var trixEditor = document.getElementById("{{ $trixId }}")
 
-    addEventListener("trix-blur", function(event) {
+    addEventListener("trix-change", function(event) {
         console.log(trixEditor.getAttribute('value'));
         @this.set('value', trixEditor.getAttribute('value'))
     })

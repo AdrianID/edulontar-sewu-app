@@ -51,30 +51,8 @@
 </head>
 <body>
     <div>
-        {{-- <main class="container mx-auto px-0 py-0">
-            <section id="hero" class="relative w-full h-screen bg-blue-300">
-                <div class="swiper-container h-full">
-                    <div class="swiper-wrapper h-full">
-                        <div class="swiper-slide flex justify-center items-center">
-                            <img src="https://i.pinimg.com/564x/ab/10/9c/ab109c093ba73f667fb3139156709d68.jpg" alt="Destination 1" class="w-full h-full object-cover">
-                        </div>
-                        <div class="swiper-slide flex justify-center items-center">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/GYRHORNthGg" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="swiper-slide flex justify-center items-center">
-                            <img src="https://i.pinimg.com/564x/ab/10/9c/ab109c093ba73f667fb3139156709d68.jpg" alt="Destination 2" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next text-white"></div>
-                    <div class="swiper-button-prev text-white"></div>
-                </div>
-            </section>
-        </main> --}}
         <div class=" w-full pt-8">
-            <div id="hero" class="text-center py-16 h-screen flex justify-center items-center" style="background-image: url('{{ asset('images/eduwisata.jpg') }}'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken;">
+            <div id="hero" class="text-center py-16 h-screen flex justify-center items-center" style="background-image: url('{{ $backgroundCarousel[0] }}'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken;">
                 <div class="">
                     <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow-lg leading-tight">
                         Nikmati Keceriaan di Wisata Lontar Sewu
@@ -234,103 +212,58 @@
         </section> --}}
     </div>
 </body>
-{{-- @push('js') --}}
 <script src="./node_modules/preline/dist/preline.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-{{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
 <script>
-
     AOS.init();
+    $(document).ready(function() {
+        const a = @json($backgroundCarousel);
+        const backgrounds = a.map(item => `url('${item}')`);
 
-    $(document).ready(function () {
-        // Array of background images
-        var backgrounds = [
-            "url('{{ asset('images/wahana2.jpg') }}')",
-            "url('{{ asset('images/wahana.jpg') }}')",
-            "url('{{ asset('images/bioskop.jpg') }}')",
-            "url('{{ asset('images/keluarga.jpg') }}')",
-            // "url('https://img.freepik.com/free-photo/beautiful-girl-standing-boat-looking-mountains-ratchaprapha-dam-khao-sok-national-park-surat-thani-province-thailand_335224-849.jpg?t=st=1729620368~exp=1729623968~hmac=a6ef573287e5acbcbddd5539bad4e6737bd9fce6504f44b5d1a8786d3c2fb792&w=1060')",
-            // "url('https://img.freepik.com/premium-photo/woman-looking-through-binoculars-with-view-rice-fields-background_935395-159552.jpg?w=1380')", // Example of another background image
-            // "url('https://img.freepik.com/premium-photo/happy-adventurous-asian-man-enjoying-beauty-nature_513176-2203.jpg?w=1060"
-        ];
+        let current = 0;
 
-        var current = 0;
-
-        // Function to change background with smooth transition
         function changeBackground() {
-            var next = (current + 1) % backgrounds.length;
+            const next = (current + 1) % backgrounds.length;
+            const tempElement = document.createElement('div');
 
-            // Create a temporary element to hold the next background image
-            var tempElement = $('<div></div>').css({
-                'background-image': backgrounds[next],
-                'position': 'absolute',
-                'top': 0,
-                'left': 0,
-                'width': '100%',
-                'height': '100%',
-                'opacity': 0,
-                'z-index': -1
+            Object.assign(tempElement.style, {
+                backgroundImage: backgrounds[next],
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: 0,
+                zIndex: -1
             });
 
-            // Append the temporary element to the body
-            $('body').append(tempElement);
+            document.body.appendChild(tempElement);
 
-            // Start the fade-in transition by changing opacity
-            tempElement.animate({ 'opacity': 1 }, 2000, function() {
-                // After transition, switch the main background and remove the temporary element
-                $('#hero').css('background-image', backgrounds[next]);
+            $(tempElement).animate({ opacity: 1 }, 2000, () => {
+                document.getElementById('hero').style.backgroundImage = backgrounds[next];
                 tempElement.remove();
-                current = next; // Update the current background index
+                current = next;
             });
         }
+
         setInterval(changeBackground, 2000);
 
-        const backgroundImages = [
-            "url('{{ asset('images/wahana2.jpg') }}')",
-            "url('{{ asset('images/car.jpg') }}')",
-            "url('{{ asset('images/bioskop.jpg') }}')",
-        ];
+            // Promo UMKM Background
+            const promoBackgrounds = backgrounds; // Bisa berbeda jika datanya terpisah
+            let promoIndex = 0;
 
-        let currentBackgroundIndex = 0;            
-        const promoUmkmSection = document.getElementById('promo-umkm');
-        function updateBackgroundImage() {
-            promoUmkmSection.style.backgroundImage = backgroundImages[currentBackgroundIndex];                
-            promoUmkmSection.style.backgroundSize = 'cover';
-            promoUmkmSection.style.backgroundPosition = 'center';                
-            currentBackgroundIndex = (currentBackgroundIndex + 1) % backgroundImages.length;
-        }
-        function startAutoBackgroundSlider() {
-            setInterval(updateBackgroundImage, 5000);                
-            updateBackgroundImage();
-        }
-        window.onload = startAutoBackgroundSlider;
+            function updatePromoBackground() {
+                const promoSection = document.getElementById('promo-umkm');
+                promoSection.style.backgroundImage = `url('${promoBackgrounds[promoIndex]}')`;
+                promoSection.style.backgroundSize = 'cover';
+                promoSection.style.backgroundPosition = 'center';
+                promoIndex = (promoIndex + 1) % promoBackgrounds.length;
+            }
 
-        // let currentIndex = 0;
-        // const carouselItems = $('.carousel-item').length;
-        // const carouselWidth = $('.carousel-item').outerWidth(true); // Get width of each carousel item including margin
-
-        // // Function to move the carousel
-        // function moveCarousel(direction) {
-        //     if (direction === 'next') {
-        //         currentIndex = (currentIndex + 1) % carouselItems;
-        //     } else {
-        //         currentIndex = (currentIndex - 1 + carouselItems) % carouselItems;
-        //     }
-        //     $('.carousel').css('transform', 'translateX(' + (-currentIndex * carouselWidth) + 'px)');
-        // }
-
-        // // Next Button
-        // $('#nextNewsBtn').click(function() {
-        //     moveCarousel('next');
-        // });
-
-        // // Previous Button
-        // $('#prevNewsBtn').click(function() {
-        //     moveCarousel('prev');
-        // });
-    });
-</script>
-{{-- @endpush --}}
+            setInterval(updatePromoBackground, 5000);
+            updatePromoBackground();
+        });
+    </script>
 </html>
 

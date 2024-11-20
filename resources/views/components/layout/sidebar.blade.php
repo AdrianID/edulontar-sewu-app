@@ -28,18 +28,18 @@
             class="overflow-y-auto py-4 px-3 h-full bg-white dark:bg-gray-800">
             <ul class="space-y-2">
 
-                <x-layout.sub.sidebar-item label="{{ __('Dashboard') }}" icon="fa-solid fa-gauge"
-                    route="{{ route('dashboard') }}" />
+                <!-- <x-layout.sub.sidebar-item label="{{ __('Dashboard') }}" icon="fa-solid fa-gauge"
+                    route="{{ route('dashboard') }}" /> -->
                 <x-layout.sub.sidebar-item label="{{ __('Home') }}" icon="fa-solid fa-gauge"
                     route="{{ route('home') }}" />
 
-                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Carousel') }}" icon="fa-solid fa-pager">
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('post.create')}}" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="{{route('post.index')}}" />
+                <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Carousel') }}" icon="fa-solid fa-gauge">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('carousel.create')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Carousel') }}" route="{{route('carousel.index')}}" />
                 </x-layout.sub.sidebar-collapse>
-                <x-layout.sub.sidebar-collapse id="News" label="{{ __('News') }}" icon="fa-solid fa-pager">
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add News') }}" route="#" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View News') }}" route="#" />
+                <x-layout.sub.sidebar-collapse id="news" label="{{ __('News') }}" icon="fa-solid fa-pager">
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add News') }}" route="{{route('post.create')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View News') }}" route="{{route('post.index')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="promo" label="{{ __('Promo') }}"
                     icon="fa-solid fa-pagerfa-solid fa-percent">
@@ -61,16 +61,6 @@
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Toko') }}" route="{{route('post.toko')}}" />
                     <x-layout.sub.sidebar-collapse-item label="{{ __('View Toko') }}" route="{{route('view.toko')}}" />
                 </x-layout.sub.sidebar-collapse>
-            </ul>
-
-            <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
-
-                <x-layout.sub.sidebar-item label="{{ __('Docs') }}" icon="fa-regular fa-file-word" route="#" />
-
-                <x-layout.sub.sidebar-item label="{{ __('Components') }}" icon="fa-solid fa-box" route="#" />
-
-                <x-layout.sub.sidebar-item label="{{ __('Help') }}" icon="fa-solid fa-circle-question"
-                    route="#" />
             </ul>
         </div>
     </aside>

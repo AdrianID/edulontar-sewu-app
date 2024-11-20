@@ -1,5 +1,5 @@
 <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Create New Post</h2>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Edit Post</h2>
 
     <!-- Title Input -->
     <div class="mb-4">
@@ -15,8 +15,10 @@
             <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
     </div>
+
+    <!-- Slug Input -->
     <div class="mb-4">
-        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Slug</label>
+        <label for="slug" class="block text-sm font-medium text-gray-700 mb-1">Slug</label>
         <input
             type="text"
             wire:model="slug"
@@ -41,6 +43,17 @@
         @error('featured_image')
             <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
+
+        <!-- Display current image -->
+        @if($featured_image)
+            <div class="mt-2">
+                <img src="{{ $featured_image->temporaryUrl() }}" alt="Preview" class="w-32 h-32 object-cover rounded-md">
+            </div>
+        @elseif($featured_image && $featured_image != $post->header_content_image)
+            <div class="mt-2">
+                <img src="{{ asset('storage/'.$post->header_content_image) }}" alt="Current Image" class="w-32 h-32 object-cover rounded-md">
+            </div>
+        @endif
     </div>
 
     <!-- Content Editor -->
@@ -56,16 +69,16 @@
     <div class="flex justify-end">
         <button
             type="button"
-            wire:click="store"
+            wire:click="update"
             class="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
-            Publish Post
+            Update Post
         </button>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    
     $(document).ready(function() {
         $('#slug').on('input', function() {
             let value = $(this).val();

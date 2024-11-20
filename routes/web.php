@@ -6,10 +6,14 @@ use App\Livewire\UserTable;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Livewire\HeroSection\Main;
 use App\Livewire\AboutSection\Main as AboutSectionMain;
+use App\Livewire\Admin\Carousel\CarouselCreate;
+use App\Livewire\Admin\Carousel\CarouselIndex as CarouselCarouselIndex;
 use App\Livewire\Admin\Fasilitas\EditFasilitas;
 use App\Livewire\Admin\Fasilitas\PostFasilitas;
 use App\Livewire\Admin\Fasilitas\ViewFasilitas;
 use App\Livewire\Admin\Home;
+use App\Livewire\Admin\Posts\CarouselIndex;
+use App\Livewire\Admin\Posts\PostEdit;
 use App\Livewire\Admin\Posts\PostIndex;
 
 use App\Livewire\Admin\Toko\EditToko;
@@ -31,6 +35,7 @@ use App\Livewire\PromoSection\Main as PromoSectionMain;
 use App\Livewire\TokoSection\Main as TokoSectionMain;
 use App\Livewire\WahanaSection\Main as WahanaSectionMain;
 use App\Livewire\ContactSection\Main as ContactSectionMain;
+use App\Livewire\NewsDetail;
 use App\Models\Produk;
 
 use function Termwind\render;
@@ -48,7 +53,7 @@ use function Termwind\render;
 
 
 // Landing pages (no authentication required)
-Route::get('/home', HeroSectionMain::class, 'homePage')->name('homePage');
+Route::get('/', HeroSectionMain::class, 'homePage')->name('homePage');
 Route::get('/about', AboutSectionMain::class, 'aboutPage')->name('aboutPage');
 Route::get('/toko', TokoSectionMain::class, 'tokoPage')->name('tokoPage');
 Route::get('/wahana', WahanaSectionMain::class, 'wahanaPage')->name('wahanaPage');
@@ -56,6 +61,8 @@ Route::get('/fasilitas', FasilitasSectionMain::class, 'fasilitasPage')->name('fa
 Route::get('/news', NewsSectionMain::class, 'newsPage')->name('newsPage');
 Route::get('/promo', PromoSectionMain::class, 'promoPage')->name('promoPage');
 Route::get('/contact', ContactSectionMain::class, 'contactPage')->name('contactPage');
+
+Route::get('/news/{slug}', NewsDetail::class)->name('news.detail');
 
 
 // Fortify routes
@@ -100,9 +107,15 @@ Route::middleware([
     Route::get('/admin/edit/wahana/{id}', EditWahana::class)->name('edit.wahana');
     Route::get('/admin/edit/fasilitas/{id}', EditFasilitas::class)->name('edit.fasilitas');
 
+    
+
     Route::get('/admin/home', Home::class)->name('home');
     Route::get('/admin/posts/create', PostCreate::class)->name('post.create');
+    Route::get('/admin/posts/edit/{slug}', PostEdit::class)->name('post.edit');
     Route::get('/admin/posts/index', PostIndex::class)->name('post.index');
+    
+    Route::get('/admin/carousel/create', CarouselCreate::class)->name('carousel.create');
+    Route::get('/admin/carousel/index', CarouselCarouselIndex::class)->name('carousel.index');
 
     Route::get('/table', UserTable::class)->name('tableTest');
     Route::get('/booking', [BookingsController::class, 'create'])->name('booking.form');

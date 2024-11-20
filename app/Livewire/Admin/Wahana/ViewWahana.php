@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire;
+// namespace App\Livewire;
+namespace App\Livewire\Admin\Wahana;
 
-use App\Models\Posts;
-use App\Models\User;
+use App\Models\Wahana;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 
-class UserTable extends DataTableComponent
+class ViewWahana extends DataTableComponent
 {
-    protected $model = Posts::class;
+    protected $model = Wahana::class;
 
     public function configure(): void
     {
@@ -24,15 +24,9 @@ class UserTable extends DataTableComponent
         return [
             Column::make('ID', 'id')
                 ->sortable(),
-            Column::make('Title', 'title')
+            Column::make('Wahana', 'judul_wahana')
                 ->sortable(),
-            Column::make('Slug', 'slug')
-                ->sortable(),
-            Column::make('Content', 'content')
-                ->sortable(),
-            Column::make('Created At', 'created_at')
-                ->sortable(),
-            Column::make('Updated At', 'updated_at')
+            Column::make('Deskripsi', 'deskripsi_wahana')
                 ->sortable(),
             ButtonGroupColumn::make('Actions')
             ->attributes(function($row) {
@@ -41,26 +35,38 @@ class UserTable extends DataTableComponent
                 ];
             })
             ->buttons([
-                LinkColumn::make('View')
+                LinkColumn::make('Edit')
                     ->title(fn($row) => '')
-                    ->location(fn($row) => route('homePage', $row))
+                    ->location(fn($row) => route('edit.wahana', ['id' => $row->id]))
                     ->attributes(function($row) {
                         return [
                             'class' => 'text-yellow-500 fa-solid fa-edit',
                         ];
                     }),
-                LinkColumn::make('Delete')
+                    LinkColumn::make('Delete')
                     ->title(fn($row) => '')
-                    ->location(fn($row) => route('aboutPage', $row))
-                    ->attributes(function($row) {
+                    ->location(fn($row) => '#') // Tidak gunakan route langsung
+                    ->attributes(function ($row) {
                         return [
-                            'target' => '_blank',
-                            'class' => 'text-blue-500 fa-solid fa-trash ',
-                            'style' => 'color:red'
+                            'class' => 'text-blue-500 fa-solid fa-trash cursor-pointer',
+                            'style' => 'color:red',
+                            'wire:click' => "delete({$row->id})", // Panggil metode delete di Livewire
                         ];
                     }),
             ]),                                    
         ];
+    }
+
+    public function delete($id)
+    {
+        $produk = Wahana::find($id);
+
+        if ($produk) {
+            $produk->delete();
+            // $this->dispatchBrowserEvent('notification', ['message' => 'Produk berhasil dihapus!']);
+        } else {
+            // $this->dispatchBrowserEvent('notification', ['message' => 'Produk tidak ditemukan!', 'type' => 'error']);
+        }
     }
 
 }

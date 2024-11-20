@@ -29,12 +29,12 @@ $verificationLimiter = config('fortify.limiters.verification', '6,1');
 
 // Authentication...
 if ($enableViews) {
-    Route::get(RoutePath::for('login', '/'), [AuthenticatedSessionController::class, 'create'])
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->middleware(['guest:' . config('fortify.guard')])
         ->name('login');
 }
 
-Route::post(RoutePath::for('login', '/'), [AuthenticatedSessionController::class, 'store'])
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware(array_filter([
         'guest:' . config('fortify.guard'),
         $limiter ? 'throttle:' . $limiter : null,

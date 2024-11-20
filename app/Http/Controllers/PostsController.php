@@ -2,12 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Livewire\TrixEditor;
 use App\Models\Post;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    public $title;
+    public $body;
+
+    public $listeners = [
+        TrixEditor::EVENT_VALUE_UPDATED // trix_value_updated()
+    ];
+
+    public function showCreatePosts(){
+        return view('livewire.admin.posts.post-create');
+    }
+
+    public function trix_value_updated($value){
+        $this->body = $value;
+    }
+
+    public function save(){
+        dd([
+            'title' => $this->title,
+            'body' => $this->body
+        ]);
+    }
     public function index()
     {
         $posts = Posts::all();

@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Posts extends Model
 {
     use HasFactory;
+    protected $table = 'posts';
 
     protected $fillable = [
         'title',
         'slug',
         'content',
-        'featured_image'
+        'header_content_image'
     ];
 }

@@ -1,6 +1,6 @@
 <div>
     <!-- Hero Section -->
-    <div class="relative bg-gray-900 text-white">
+    <div class="mt-20 relative bg-gray-900 text-white">
         <div class="absolute inset-0">
             <img src="{{ asset('storage/'.$featured_image) }}" alt="{{ $title }}" class="w-full h-96 object-cover opacity-60">
         </div>

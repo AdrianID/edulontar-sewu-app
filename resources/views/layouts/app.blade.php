@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
     {{-- <title>{{ config('app.name', 'ADMIN') }}</title> --}}
     <title>ADMIN</title>
-    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">

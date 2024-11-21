@@ -20,26 +20,13 @@
         <div class="carousel flex transition-transform ease-linear duration-500" id="carousel-news">
             <!-- Card Structure Remains Same -->
             <!-- Repeat Cards Here (Add as many as you need) -->
+             @foreach($news as $item)
             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 1</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
+                <img src="{{asset('/storage/'.$item['header_content_image'])}}" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-xl font-bold mt-4"><a href="{{'/news/'.$item['slug']}}">{{$item['title']}}</a></h3>
+                <!-- <p class="text-gray-600 mt-2">Read More...</p> -->
             </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 2</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 3</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="https://via.placeholder.com/300x200" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4">Exciting New Destinations 4</h3>
-                <p class="text-gray-600 mt-2">Explore the beauty of untouched places around the globe.</p>
-            </div>
+            @endforeach
              
             <!-- Add more cards... -->
         </div>

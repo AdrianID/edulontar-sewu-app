@@ -5,9 +5,10 @@
 
             <div class="border-b px-4 py-6">
                 <a href="/"
-                    class="flex items-center justify-center md:text-xl xl:text-2xl font-semibold dark:text-white">
-                    <img src="/static/images/logo.png" class="mr-3 h-9 xl:h-11" alt="FlowBite Logo">
-                    <span>AB Company</span>
+                    <a href="/public/images" class="flex items-center justify-center md:text-xl xl:text-2xl font-semibold dark:text-white">
+                        <img src="{{ asset('images/logo.png') }}" class="mr-3 h-9 xl:h-11" alt="Logo">
+                        <span>Admin Lontar Sewu</span>
+                    </a>
                 </a>
             </div>
 
@@ -58,7 +59,7 @@
                     </div>
 
                     <div class="flex justify-center text-sm text-gray-500 mt-6">
-                        &copy 2023 <a class="ml-2 text-primary-500" href="">AB Company plc</a>.
+                        &copy 2023 <a class="ml-2 text-primary-500" href="">Admin Lontar Sewu</a>.
                     </div>
                 </form>
             </div>

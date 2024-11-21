@@ -2,12 +2,14 @@
 
 namespace App\Livewire\NewsSection;
 
+use App\Models\Posts;
 use Livewire\Component;
 
 class Main extends Component
 {
     public function render()
     {
-        return view('livewire.news-section.main')->layout('layouts.landing');
+        $news = Posts::all();
+        return view('livewire.news-section.main', [ 'news' => $news ])->layout('layouts.landing');
     }
 }

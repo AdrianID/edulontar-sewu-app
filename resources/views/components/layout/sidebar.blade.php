@@ -30,8 +30,8 @@
 
                 <!-- <x-layout.sub.sidebar-item label="{{ __('Dashboard') }}" icon="fa-solid fa-gauge"
                     route="{{ route('dashboard') }}" /> -->
-                <x-layout.sub.sidebar-item label="{{ __('Home') }}" icon="fa-solid fa-gauge"
-                    route="{{ route('home') }}" />
+                <!-- <x-layout.sub.sidebar-item label="{{ __('Home') }}" icon="fa-solid fa-gauge"
+                    route="{{ route('home') }}" /> -->
 
                 <x-layout.sub.sidebar-collapse id="pages" label="{{ __('Carousel') }}" icon="fa-solid fa-gauge">
                     <x-layout.sub.sidebar-collapse-item label="{{ __('Add Carousel') }}" route="{{route('carousel.create')}}" />
@@ -53,8 +53,8 @@
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="fasilitas" label="{{ __('Fasilitas') }}"
                     icon="fa-solid fa-universal-access">
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Fasiltias') }}" route="{{route('post.fasilitas')}}" />
-                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasiltias') }}" route="{{route('view.fasilitas')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('Add Fasilitas') }}" route="{{route('post.fasilitas')}}" />
+                    <x-layout.sub.sidebar-collapse-item label="{{ __('View Fasilitas') }}" route="{{route('view.fasilitas')}}" />
                 </x-layout.sub.sidebar-collapse>
                 <x-layout.sub.sidebar-collapse id="toko" label="{{ __('Toko') }}"
                     icon="fa-solid fa-pagerfa-solid fa-shopping-bag">

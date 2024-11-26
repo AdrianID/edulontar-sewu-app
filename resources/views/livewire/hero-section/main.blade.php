@@ -52,34 +52,40 @@
 <body>
     <div>
         <div class=" w-full pt-8">
-            <div id="hero" class="text-center py-16 h-screen flex justify-center items-center" style="background-image: url('{{ $backgroundCarousel[0] }}'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken;">
-                <div class="">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow-lg leading-tight">
-                        Nikmati Keceriaan di Wisata Lontar Sewu
-                    </h1>
-                    <p class="text-white mt-4 text-shadow-sm leading-relaxed">
-                        Ajak keluarga Anda untuk merasakan keseruan dan kegembiraan di wisata keluarga Taman Bermain Lontar Sewu
-                    </p>
-                    {{-- <a href="#destinations" class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600 text-shadow-md">Start Exploring</a> --}}
-                </div>
+            <div id="hero" 
+            class="text-center py-16 h-screen flex justify-center items-center" 
+            style="background-image: url('{{ $backgroundCarousel[0] ?? asset('images/bioskop.jpg') }}'); 
+                background-size: cover; 
+                background-position: center; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                background-blend-mode: darken;">
+            <div class="">
+                <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow-lg leading-tight">
+                    Nikmati Keceriaan di Wisata Lontar Sewu
+                </h1>
+                <p class="text-white mt-4 text-shadow-sm leading-relaxed">
+                    Ajak keluarga Anda untuk merasakan keseruan dan kegembiraan di wisata keluarga Taman Bermain Lontar Sewu
+                </p>
+                {{-- <a href="#destinations" class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600 text-shadow-md">Start Exploring</a> --}}
             </div>
+        </div>
             <div id="destinations" class="py-16 px-12">
-                <h2 class="text-4xl py-4 font-bold text-[#000] text-center mb-8">Popular Destinations</h2>
+                <h2 class="text-4xl py-4 font-bold text-[#000] text-center mb-8">Destinasi Populer</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white p-4 shadow-md rounded-md">
                         <img src="{{ asset('images/car.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Beautiful Beach</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 class="text-xl font-bold mt-4">Pantai Indah</h3>
+                        <p class="text-gray-600 mt-2">Nikmati keindahan pantai yang memukau dengan pasir putihnya.</p>
                     </div>
                     <div class="bg-white p-4 shadow-md rounded-md">
                         <img src="{{ asset('images/flying.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Mountain Adventure</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 class="text-xl font-bold mt-4">Petualangan Gunung</h3>
+                        <p class="text-gray-600 mt-2">Jelajahi petualangan seru di lereng gunung yang menantang.</p>
                     </div>
                     <div class="bg-white p-4 shadow-md rounded-md">
                         <img src="{{ asset('images/kuda.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">City Tour</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 class="text-xl font-bold mt-4">Wisata Kota</h3>
+                        <p class="text-gray-600 mt-2">Menikmati kehidupan kota yang penuh warna dan keunikan.</p>
                     </div>
                 </div>
             </div>
@@ -88,9 +94,9 @@
                 @livewire('hero-section.denah')
             </section>
     
-            <section>
+            {{-- <section>
                 @livewire('hero-section.news')
-            </section>
+            </section> --}}
             
             <section>
                 {{-- @livewire('hero-section.news') --}}
@@ -114,17 +120,17 @@
                     <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="100">
                         <img src="{{ asset('images/car.jpg') }}" alt="Event" class="w-full h-40 object-cover rounded-md">
                         <h3 class="text-xl font-bold mt-4">Music Festival</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p class="text-gray-600 mt-2">Music Festival akan segera hadir dengan berbagai penampilan musik yang menarik.</p>
                     </div>
                     <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="200">
                         <img src="{{ asset('images/flying.jpg') }}" alt="Event" class="w-full h-40 object-cover rounded-md">
                         <h3 class="text-xl font-bold mt-4">Food Carnival</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p class="text-gray-600 mt-2">Food Carnival akan memanjakan lidah Anda dengan berbagai hidangan lezat dari seluruh dunia.</p>
                     </div>
                     <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="300">
                         <img src="https://via.placeholder.com/300x200" alt="Event" class="w-full h-40 object-cover rounded-md">
                         <h3 class="text-xl font-bold mt-4">Cultural Parade</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p class="text-gray-600 mt-2">Cultural Parade akan mempersembahkan kebudayaan yang kaya dan menarik untuk dinikmati bersama.</p>
                     </div>
                 </div>
             </section>

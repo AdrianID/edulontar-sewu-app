@@ -2,12 +2,14 @@
 
 namespace App\Livewire\HeroSection;
 
+use App\Models\Posts;
 use Livewire\Component;
 
 class News extends Component
 {
     public function render()
     {
-        return view('livewire.hero-section.news');
+        $news = Posts::all();
+        return view('livewire.hero-section.news', ['news' => $news]);
     }
 }

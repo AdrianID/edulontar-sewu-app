@@ -87,7 +87,7 @@
                     </div>
                     <div class="ml-4">
                       <p class="font-bold text-neutral-500">Address</p>
-                      <p class="text-neutral-500">Wisata Alam & Kuliner Lontar Sewu Gresik. Alamat lokasi: Desa, Hendrosalam, Hendrosari, Kec. Menganti, Kabupaten Gresik, Jawa Timur 61174,</p>
+                      <a href="https://g.co/kgs/EqH25Eb" class="text-neutral-500">Wisata Alam & Kuliner Lontar Sewu Gresik. Alamat lokasi: Desa, Hendrosalam, Hendrosari, Kec. Menganti, Kabupaten Gresik, Jawa Timur 61174,</a>
                     </div>
                   </div>
                 </div>

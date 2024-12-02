@@ -36,6 +36,7 @@
              
             <!-- Add more cards... -->
         </div>
+    @endforeach
     </div>
 
     <!-- Carousel Navigation Arrows -->

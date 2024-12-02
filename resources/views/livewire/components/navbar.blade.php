@@ -16,7 +16,7 @@
 <div>
     <header id="navbar" class="bg-[#FFF1D6] shadow-lg fixed top-0 left-0 w-full z-10">
         <nav class="container mx-auto px-4 py-6 flex justify-between items-center flex-wrap">
-            <a href="/home" class="text-2xl font-bold text-[#387F39] flex items-center">
+            <a href="/" class="text-2xl font-bold text-[#387F39] flex items-center">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto inline-block mr-2">
                 Lontar Sewu
             </a>

@@ -3,6 +3,8 @@
 namespace App\Livewire\HeroSection;
 
 use App\Models\CmsContents;
+use App\Models\Promo;
+use App\Models\Wahana;
 use Livewire\Component;
 
 class Main extends Component
@@ -20,7 +22,9 @@ class Main extends Component
 
     public function render()
     {
-        return view('livewire.hero-section.main')->layout('layouts.landing');
+        $promos = Promo::take(3)->get();
+        $wahana = Wahana::take(3)->get();
+        return view('livewire.hero-section.main', ['wahana' => $wahana, 'promos' => $promos])->layout('layouts.landing');
         // return view('landing-page.hero-page');
     }
 }

@@ -176,11 +176,11 @@
             
     
             <!-- Call to Action Section -->
-            {{-- <section id="cta" class="py-16 text-center bg-blue-600 text-white">
+            <!-- {{-- <section id="cta" class="py-16 text-center bg-blue-600 text-white">
                 <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Ready to Start Your Journey?</h2>
                 <p class="mb-6" data-aos="fade-up" data-aos-delay="100">Sign up for our newsletter to get the latest travel deals and tips directly to your inbox.</p>
                 <a href="#" class="inline-block bg-white text-blue-600 py-3 px-6 rounded-md hover:bg-gray-200" data-aos="fade-up" data-aos-delay="200">Sign Up Now</a>
-            </section> --}}
+            </section> --}} -->
     
             <section class="bg-gray-100">
                 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
@@ -221,65 +221,65 @@
             </section>
     
         </div>
-        {{-- <section id="cta" class="py-16 text-center bg-[#006400] text-white">
+        <!-- {{-- <section id="cta" class="py-16 text-center bg-[#006400] text-white">
             <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Ready to Start Your Journey?</h2>
             <p class="mb-6" data-aos="fade-up" data-aos-delay="100">Sign up for our newsletter to get the latest travel deals and tips directly to your inbox.</p>
             <a href="#" class="inline-block bg-white text-[#006400] py-3 px-6 rounded-md hover:bg-gray-200" data-aos="fade-up" data-aos-delay="200">Sign Up Now</a>
-        </section> --}}
+        </section> --}} -->
     </div>
 </body>
 <script src="./node_modules/preline/dist/preline.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-<script>
-    AOS.init();
-    $(document).ready(function() {
-        const a = @json($backgroundCarousel);
-        const backgrounds = a.map(item => `url('${item}')`);
+    <script>
+        AOS.init();
+        $(document).ready(function() {
+            const a = @json($backgroundCarousel);
+            const backgrounds = a.map(item => `url('${item}')`);
 
-        let current = 0;
+            let current = 0;
 
-        function changeBackground() {
-            const next = (current + 1) % backgrounds.length;
-            const tempElement = document.createElement('div');
+            function changeBackground() {
+                const next = (current + 1) % backgrounds.length;
+                const tempElement = document.createElement('div');
 
-            Object.assign(tempElement.style, {
-                backgroundImage: backgrounds[next],
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                opacity: 0,
-                zIndex: -1
-            });
+                Object.assign(tempElement.style, {
+                    backgroundImage: backgrounds[next],
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    opacity: 0,
+                    zIndex: -1
+                });
 
-            document.body.appendChild(tempElement);
+                document.body.appendChild(tempElement);
 
-            $(tempElement).animate({ opacity: 1 }, 2000, () => {
-                document.getElementById('hero').style.backgroundImage = backgrounds[next];
-                tempElement.remove();
-                current = next;
-            });
-        }
-
-        setInterval(changeBackground, 2000);
-
-            // Promo UMKM Background
-            const promoBackgrounds = backgrounds; // Bisa berbeda jika datanya terpisah
-            let promoIndex = 0;
-
-            function updatePromoBackground() {
-                const promoSection = document.getElementById('promo-umkm');
-                promoSection.style.backgroundImage = `url('${promoBackgrounds[promoIndex]}')`;
-                promoSection.style.backgroundSize = 'cover';
-                promoSection.style.backgroundPosition = 'center';
-                promoIndex = (promoIndex + 1) % promoBackgrounds.length;
+                $(tempElement).animate({ opacity: 1 }, 2000, () => {
+                    document.getElementById('hero').style.backgroundImage = backgrounds[next];
+                    tempElement.remove();
+                    current = next;
+                });
             }
 
-            setInterval(updatePromoBackground, 5000);
-            updatePromoBackground();
-        });
+            setInterval(changeBackground, 2000);
+
+                // Promo UMKM Background
+                const promoBackgrounds = backgrounds; // Bisa berbeda jika datanya terpisah
+                let promoIndex = 0;
+
+                function updatePromoBackground() {
+                    const promoSection = document.getElementById('promo-umkm');
+                    promoSection.style.backgroundImage = `url('${promoBackgrounds[promoIndex]}')`;
+                    promoSection.style.backgroundSize = 'cover';
+                    promoSection.style.backgroundPosition = 'center';
+                    promoIndex = (promoIndex + 1) % promoBackgrounds.length;
+                }
+
+                setInterval(updatePromoBackground, 5000);
+                updatePromoBackground();
+            });
     </script>
 </html>
 

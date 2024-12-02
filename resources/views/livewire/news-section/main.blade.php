@@ -29,40 +29,41 @@
   
     <!-- News Cards Section -->
     @if(count($news) < 5)
-      <section class="py-8" data-aos="fade-up">
+    <section class="py-8" data-aos="fade-up">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          <!-- Left Side: Full-width Image -->
-          @if(isset($news[0]))
-            <a href="news/{{ $news[0]->slug }}" class="relative block bg-cover bg-center h-64 lg:h-auto rounded-lg overflow-hidden shadow-lg group"
-              style="background-image: url('{{ $news[0]->header_content_image }}');">
-              <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-              <div class="relative z-10 p-6 flex items-end h-full">
-                <div>
-                  <h3 class="text-white font-bold text-xl group-hover:text-yellow-500 transition-colors duration-300">{{ $news[0]->title }}</h3>
-                  <p class="text-white text-sm mt-2">{{ $news[0]->subtitle }}</p>
-                </div>
-              </div>
-            </a>
-          @endif
-      
-          <!-- Right Side: News Cards with Background Image -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            @foreach($news->slice(1, 4) as $index => $item)
-              <a href="news/{{ $item->slug }}" class="relative block bg-cover bg-center h-64 rounded-lg overflow-hidden shadow-lg group"
-                style="background-image: url('{{ $item->header_content_image }}');">
-                <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                <div class="relative z-10 p-6 flex items-end h-full">
-                  <div>
-                    <h3 class="text-white font-bold text-xl group-hover:text-yellow-500 transition-colors duration-300">{{ $item->title }}</h3>
-                    <p class="text-white text-sm mt-2">{{ $item->subtitle }}</p>
-                  </div>
-                </div>
-              </a>
-            @endforeach
-          </div>
+            <!-- Left Side: Full-width Image -->
+            @if(isset($news[0]))
+                <a href="news/{{ $news[0]->slug }}" class="relative block bg-cover bg-center h-64 lg:h-auto rounded-lg overflow-hidden shadow-lg group"
+                   style="background-image: url('{{ asset('/storage/'.$news[0]->header_content_image) }}');">
+                    <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+                    <div class="relative z-10 p-6 flex items-end h-full">
+                        <div>
+                            <h3 class="text-white font-bold text-xl group-hover:text-yellow-500 transition-colors duration-300">{{ $news[0]->title }}</h3>
+                            <p class="text-white text-sm mt-2">{{ strip_tags($news[0]->subtitle) }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endif
+
+            <!-- Right Side: News Cards with Background Image -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                @foreach($news->slice(1, 4) as $index => $item)
+                    <a href="news/{{ $item->slug }}" class="relative block bg-cover bg-center h-64 rounded-lg overflow-hidden shadow-lg group"
+                       style="background-image: url('{{ asset('/storage/'.$item->header_content_image)}}');">
+                        <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative z-10 p-6 flex items-end h-full">
+                            <div>
+                                <h3 class="text-white font-bold text-xl group-hover:text-yellow-500 transition-colors duration-300">{{ $item->title }}</h3>
+                                <p class="text-white text-sm mt-2">{{ strip_tags($item->subtitle) }}</p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
-      </section>
-    @endif
+    </section>
+@endif
+
 
     
   
@@ -76,13 +77,13 @@
           <div class="flex flex-col h-64 md:flex-row">
             <!-- Image Slot -->
             <div class="w-full h-1/2 md:w-1/3 md:h-full">
-              <img src="{{ $item->header_content_image }}" alt="News Image 1" class="w-full h-full object-cover">
+              <img src="{{ asset('/storage/'.$item->header_content_image) }}" alt="News Image 1" class="w-full h-full object-cover">
             </div>
             <!-- Content Slot -->
             <div class="p-6 w-full h-1/2 md:w-2/3 md:h-full flex flex-col justify-center">
               <h3 class="text-2xl font-bold text-gray-800">{{ $item->title }}</h3>
               {{-- <p class="text-sm text-gray-500 mt-2">Spesial Hari Museum Nasional</p> --}}
-              <p class="text-base text-gray-600 mt-4 truncate">{{ $item->content }}</p>
+              <p class="text-base text-gray-600 mt-4 truncate">{{ strip_tags($item->content) }}</p>
             </div>
           </div>
         </a>

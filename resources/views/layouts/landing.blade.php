@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <title>@yield('title') | Lontar Sewu</title> --}}
     {{-- <title>@yield('title') | Lontar Sewu</title> --}}
-    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/assets/scss/app.scss', 'resources/assets/js/app.js'])
     @yield('css')
 </head>
 <body class="bg-[#FFF1D6]">

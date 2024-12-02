@@ -15,11 +15,26 @@
 <div>
   <section id="news" class="py-16 bg-gray-100 relative">
     <h2 class="text-3xl font-bold text-gray-800 text-center mb-8" data-aos="fade-up">Latest News</h2>
-    @foreach($news as $item)
-        <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-            <img src="{{ $item->image }}" alt="{{ $item->title }}" class="w-full h-40 object-cover rounded-md">
-            <h3 class="text-xl font-bold mt-4">{{ $item->title }}</h3>
-            <p class="text-gray-600 mt-2">{{ $item->description }}</p>
+    <div class="news-carousel relative w-full overflow-hidden">
+        <!-- Carousel Wrapper -->
+        <div class="carousel flex transition-transform ease-linear duration-500" id="carousel-news">
+            <!-- Card Structure Remains Same -->
+            <!-- Repeat Cards Here (Add as many as you need) -->
+             @foreach($news as $item)
+             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
+    <img src="{{ asset('/storage/'.$item['header_content_image']) }}" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
+    <h3 class="text-xl font-bold mt-4">
+        <a href="{{ '/news/'.$item['slug'] }}">{{ $item['title'] }}</a>
+    </h3>
+    <p class="text-gray-600 mt-2">
+        {{ Str::limit(strip_tags($item['content']), 100, '...') }}
+        <a href="{{ '/news/'.$item['slug'] }}" class="text-blue-500 hover:underline">Read more</a>
+    </p>
+</div>
+
+            @endforeach
+             
+            <!-- Add more cards... -->
         </div>
     @endforeach
     </div>

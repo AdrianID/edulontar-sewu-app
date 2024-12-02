@@ -34,7 +34,7 @@
             <!-- Left Side: Full-width Image -->
             @if(isset($news[0]))
                 <a href="news/{{ $news[0]->slug }}" class="relative block bg-cover bg-center h-64 lg:h-auto rounded-lg overflow-hidden shadow-lg group"
-                   style="background-image: url('{{ $news[0]->header_content_image }}');">
+                   style="background-image: url('{{ asset('/storage/'.$news[0]->header_content_image) }}');">
                     <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
                     <div class="relative z-10 p-6 flex items-end h-full">
                         <div>
@@ -49,7 +49,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @foreach($news->slice(1, 4) as $index => $item)
                     <a href="news/{{ $item->slug }}" class="relative block bg-cover bg-center h-64 rounded-lg overflow-hidden shadow-lg group"
-                       style="background-image: url('{{ $item->header_content_image }}');">
+                       style="background-image: url('{{ asset('/storage/'.$item->header_content_image)}}');">
                         <div class="absolute inset-0 bg-black opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
                         <div class="relative z-10 p-6 flex items-end h-full">
                             <div>
@@ -77,7 +77,7 @@
           <div class="flex flex-col h-64 md:flex-row">
             <!-- Image Slot -->
             <div class="w-full h-1/2 md:w-1/3 md:h-full">
-              <img src="{{ $item->header_content_image }}" alt="News Image 1" class="w-full h-full object-cover">
+              <img src="{{ asset('/storage/'.$item->header_content_image) }}" alt="News Image 1" class="w-full h-full object-cover">
             </div>
             <!-- Content Slot -->
             <div class="p-6 w-full h-1/2 md:w-2/3 md:h-full flex flex-col justify-center">

@@ -39,9 +39,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
   
         <!-- Product Card 1 -->
-        {{-- <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105" data-aos="fade-up">
+        <!-- <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105" data-aos="fade-up">
           <div class="relative">
-            <!-- Image Carousel -->
             <div id="carousel1" class="carousel overflow-hidden">
               <img src="https://i.pinimg.com/474x/a8/2b/c3/a82bc337dc65fd3affe1699d8579069f.jpg" alt="Product Image 1" class="w-full h-56 object-cover transition-opacity duration-500">
               <img src="https://i.pinimg.com/control/236x/65/93/c1/6593c15d69ab6d734a4a8437fa2c9938.jpg" alt="Product Image 2" class="w-full h-56 object-cover hidden transition-opacity duration-500">
@@ -51,8 +50,7 @@
           <div class="p-6">
             <h2 class="text-2xl font-bold product-title text-gray-800 mb-2">Product Title 1</h2>
             <span class="block text-lg font-semibold mb-4 text-green-600">Price: $XX</span>
-            
-            <!-- Description with "Show More" functionality -->
+
             <p class="text-gray-600 mb-4 product-description">This is a short description of the product. It's perfect for your daily needs! Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nobis dolorum inventore optio fugit laudantium quas dignissimos blanditiis tempora numquam!</p>
             <span class="show-more text-green-500 cursor-pointer">Lihat Lebih Banyak</span>
   
@@ -67,7 +65,7 @@
             </button>
             
           </div>
-        </div> --}}
+        </div> -->
         
         @foreach($products as $product)
 
@@ -76,7 +74,6 @@
                   <!-- Image Carousel -->
                   <div class="carousel relative w-full h-60 overflow-hidden">
                       <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" style="width: 300%">
-                          <img src="https://i.pinimg.com/736x/a8/4a/85/a84a85f51e441df3b9d6bc4c33015b7c.jpg" alt="Product Image 1" class="w-1/3 h-full object-cover">
                           @foreach ($product->gambarProduk as $gambar)
                               <img 
                                   src="{{ asset('storage/images/' . $gambar->path_gambar) }}" 

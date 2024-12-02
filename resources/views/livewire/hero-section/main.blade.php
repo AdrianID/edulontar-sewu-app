@@ -52,84 +52,100 @@
 <body>
     <div>
         <div class=" w-full pt-8">
-            <div id="hero" class="text-center py-16 h-screen flex justify-center items-center" style="background-image: url('{{ $backgroundCarousel[0] }}'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken;">
-                <div class="">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow-lg leading-tight">
-                        Nikmati Keceriaan di Wisata Lontar Sewu
-                    </h1>
-                    <p class="text-white mt-4 text-shadow-sm leading-relaxed">
-                        Ajak keluarga Anda untuk merasakan keseruan dan kegembiraan di wisata keluarga Taman Bermain Lontar Sewu
-                    </p>
-                    {{-- <a href="#destinations" class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600 text-shadow-md">Start Exploring</a> --}}
-                </div>
+            <div id="hero" 
+            class="text-center py-16 h-screen flex justify-center items-center" 
+            style="background-image: url('{{ $backgroundCarousel[0] ?? asset('images/bioskop.jpg') }}'); 
+                background-size: cover; 
+                background-position: center; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                background-blend-mode: darken;">
+            <div class="">
+                <h1 class="text-4xl md:text-6xl font-bold text-white text-shadow-lg leading-tight">
+                    Nikmati Keceriaan di Wisata Lontar Sewu
+                </h1>
+                <p class="text-white mt-4 text-shadow-sm leading-relaxed">
+                    Ajak keluarga Anda untuk merasakan keseruan dan kegembiraan di wisata keluarga Taman Bermain Lontar Sewu
+                </p>
+                {{-- <a href="#destinations" class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600 text-shadow-md">Start Exploring</a> --}}
             </div>
+        </div>
+        @if($wahana && $wahana->isNotEmpty())
             <div id="destinations" class="py-16 px-12">
-                <h2 class="text-4xl py-4 font-bold text-[#000] text-center mb-8">Popular Destinations</h2>
+                <h2 class="text-4xl py-4 font-bold text-[#000] text-center mb-8">Wahana Populer</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-4 shadow-md rounded-md">
-                        <img src="{{ asset('images/car.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Beautiful Beach</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="bg-white p-4 shadow-md rounded-md">
-                        <img src="{{ asset('images/flying.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Mountain Adventure</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="bg-white p-4 shadow-md rounded-md">
-                        <img src="{{ asset('images/kuda.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">City Tour</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        @foreach($wahana->take(3) as $item)
+                            <div class="bg-white p-4 shadow-md rounded-md">
+                                <img src="{{ $item->gambar_wahana ? asset('storage/images/' . $item->gambar_wahana) : 'https://via.placeholder.com/600' }}" alt="{{ $item->name }}" class="w-full h-40 object-cover rounded-md">
+                                <h3 class="text-xl font-bold mt-4">{{ $item->judul_wahana }}</h3>
+                                <!-- <p class="text-gray-600 mt-2">{{ $item->description }}</p> -->
+                            </div>
+                        @endforeach
+                        <!-- <div class="bg-white p-4 shadow-md rounded-md">
+                            <img src="{{ asset('images/flying.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
+                            <h3 class="text-xl font-bold mt-4">Petualangan Gunung</h3>
+                            <p class="text-gray-600 mt-2">Jelajahi petualangan seru di lereng gunung yang menantang.</p>
+                        </div>
+                        <div class="bg-white p-4 shadow-md rounded-md">
+                            <img src="{{ asset('images/kuda.jpg') }}" alt="Destination" class="w-full h-40 object-cover rounded-md">
+                            <h3 class="text-xl font-bold mt-4">Wisata Kota</h3>
+                            <p class="text-gray-600 mt-2">Menikmati kehidupan kota yang penuh warna dan keunikan.</p>
+                        </div> -->
                     </div>
                 </div>
-            </div>
+        @endif
     
             <section>
                 @livewire('hero-section.denah')
             </section>
     
-            <section>
+            {{-- <section>
                 @livewire('hero-section.news')
-            </section>
+            </section> --}}
             
             <section>
                 {{-- @livewire('hero-section.news') --}}
                 {{-- @livewire('hero-section.testimoni') --}}
             </section>
     
-            <section id="promo-umkm" class="py-16 bg-gradient-to-r from-black to-white text-white text-center relative overflow-hidden">
-                <div class="container mx-auto px-6 relative z-10">
+            <section id="promo-umkm" class="relative py-16 text-white text-center overflow-hidden">
+                <!-- Gambar latar belakang -->
+                <img src="{{ asset('images/wahana.jpg') }}" 
+                    alt="Promo UMKM" 
+                    class="absolute inset-0 w-full h-full object-cover z-0" />
+
+                <!-- Overlay untuk gradient -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60 z-10"></div>
+                
+                <!-- Konten -->
+                <div class="container mx-auto px-6 relative z-20">
                     <h2 class="text-4xl font-bold mb-4">Promosi Produk UMKM</h2>
                     <p class="text-lg mb-8">Dukung produk lokal dan temukan berbagai produk menarik dari UMKM di sekitar Anda.</p>
                     <a href="/toko" class="inline-block bg-white text-green-700 font-semibold py-3 px-6 rounded-md hover:bg-gray-200 transition duration-300">Kunjungi Toko</a>
                 </div>
-                <!-- Overlay untuk gradient agar teks tetap terbaca -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black opacity-50 z-0"></div>
             </section>
+
+
+
     
             <!-- Events Section -->
-            <section id="events" class="py-16">
-                <h2 class="text-3xl font-bold text-[#006400] text-center mb-8" data-aos="fade-up">Upcoming Events</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('images/car.jpg') }}" alt="Event" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Music Festival</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+            @if($promos && $promos->isNotEmpty())
+                <section id="events" class="py-16">
+                    <h2 class="text-3xl font-bold text-[#006400] text-center mb-8" data-aos="fade-up">Promo Menarik</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        @foreach($promos as $promo)
+                            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="100">
+                                <img src="{{ asset('storage/images/' . $promo->cover_image) }}" alt="Event" class="w-full h-40 object-cover rounded-md">
+                                <h3 class="text-xl font-bold mt-4">{{ $promo->title }}</h3>
+                                <!-- {{-- <p class="text-gray-600 mt-2">Music Festival akan segera hadir dengan berbagai penampilan musik yang menarik.</p> --}} -->
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="200">
-                        <img src="{{ asset('images/flying.jpg') }}" alt="Event" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Food Carnival</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://via.placeholder.com/300x200" alt="Event" class="w-full h-40 object-cover rounded-md">
-                        <h3 class="text-xl font-bold mt-4">Cultural Parade</h3>
-                        <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
+            @endif
+
     
-            {{-- <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+            <!-- {{-- <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
                 <div
                     class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
                     <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"></span>
@@ -153,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div> --}} -->
             <!-- https://play.tailwindcss.com/eCfibrSI2X -->
     
             <!-- Testimonials Section -->

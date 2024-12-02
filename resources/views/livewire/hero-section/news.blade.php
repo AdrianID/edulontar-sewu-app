@@ -21,15 +21,22 @@
             <!-- Card Structure Remains Same -->
             <!-- Repeat Cards Here (Add as many as you need) -->
              @foreach($news as $item)
-            <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
-                <img src="{{asset('/storage/'.$item['header_content_image'])}}" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
-                <h3 class="text-xl font-bold mt-4"><a href="{{'/news/'.$item['slug']}}">{{$item['title']}}</a></h3>
-                <!-- <p class="text-gray-600 mt-2">Read More...</p> -->
-            </div>
+             <div class="carousel-item bg-white p-4 shadow-md rounded-md mx-2" data-aos="fade-up">
+    <img src="{{ asset('/storage/'.$item['header_content_image']) }}" alt="News Image 1" class="w-full h-40 object-cover rounded-md">
+    <h3 class="text-xl font-bold mt-4">
+        <a href="{{ '/news/'.$item['slug'] }}">{{ $item['title'] }}</a>
+    </h3>
+    <p class="text-gray-600 mt-2">
+        {{ Str::limit(strip_tags($item['content']), 100, '...') }}
+        <a href="{{ '/news/'.$item['slug'] }}" class="text-blue-500 hover:underline">Read more</a>
+    </p>
+</div>
+
             @endforeach
              
             <!-- Add more cards... -->
         </div>
+    @endforeach
     </div>
 
     <!-- Carousel Navigation Arrows -->

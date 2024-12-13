@@ -83,9 +83,9 @@
                           @endforeach
                       </div>
                       <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
-                          <button class="w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600 focus:outline-none"></button>
-                          <button class="w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600 focus:outline-none"></button>
-                          <button class="w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600 focus:outline-none"></button>
+                        @foreach ($product->gambarProduk as $gambar)
+                          <button class="w-3 h-3 rounded-full bg-gray-300 border-2 border-white hover:bg-gray-500 focus:outline-none transition-transform transform hover:scale-125 active:bg-gray-700" data-index="{{ $loop->index }}"></button>
+                        @endforeach
                       </div>
                   </div>
               </div>
@@ -129,20 +129,54 @@
   AOS.init();
 
   // Simple image carousel with jQuery
-  $(".carousel").each(function() {
+//   $(".carousel").each(function() {
+//     let $carousel = $(this);
+//     let $images = $carousel.find("img");
+//     if ($images.length > 1) {
+//         let currentImage = 0;
+        
+//         setInterval(function() {
+//             $images.eq(currentImage).fadeOut(500, function() {
+//                 currentImage = (currentImage + 1) % $images.length;
+//                 $images.eq(currentImage).fadeIn(500);
+//             });
+//         }, 3000);
+//     }
+// });
+
+// Simple image carousel with indicator dots
+$(".carousel").each(function() {
     let $carousel = $(this);
     let $images = $carousel.find("img");
+    let $dots = $carousel.find("button");
+
     if ($images.length > 1) {
-        let currentImage = 0;
-        
-        setInterval(function() {
-            $images.eq(currentImage).fadeOut(500, function() {
-                currentImage = (currentImage + 1) % $images.length;
-                $images.eq(currentImage).fadeIn(500);
-            });
-        }, 3000);
+      let currentImage = 0;
+
+      // Function to update the visible image and active dot
+      function updateCarousel(index) {
+        $images.fadeOut(500).eq(index).fadeIn(500);
+        $dots.removeClass("bg-gray-600").addClass("bg-gray-400")
+          .eq(index).removeClass("bg-gray-400").addClass("bg-gray-600");
+        currentImage = index;
+      }
+
+      // Initialize the carousel to show the first image
+      updateCarousel(currentImage);
+
+      // Event listener for dots
+      $dots.on("click", function() {
+        let index = $(this).index();
+        updateCarousel(index);
+      });
+
+      // Auto-slide functionality (optional)
+      setInterval(function() {
+        let nextImage = (currentImage + 1) % $images.length;
+        updateCarousel(nextImage);
+      }, 3000);
     }
-});
+  });
 
   // Show More/Less functionality for descriptions
 $('.product-description').each(function() {

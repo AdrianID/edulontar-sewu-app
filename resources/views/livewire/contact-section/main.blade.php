@@ -12,7 +12,7 @@
   <div>
     <section class="mb-32 mt-20">
       <!-- Map Section -->
-      <div id="map" class="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
+      <div id="map" class="relative h-[700px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0204318117912!2d112.58111812514035!3d-7.238508171094147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78015da9598863%3A0x1458d5cd0242acfe!2sEdu%20Wisata%20Lontar%20Sewu%20(Hendrosari)!5e0!3m2!1sid!2sid!4v1729748573188!5m2!1sid!2sid" width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -20,7 +20,7 @@
       <!-- Content Section -->
       <div class="px-6 md:px-12">
         <div
-          class="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
+          class="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 backdrop-blur-[30px] border border-gray-300">
           <div class="flex flex-wrap">
             
             <!-- Copywriting Card -->

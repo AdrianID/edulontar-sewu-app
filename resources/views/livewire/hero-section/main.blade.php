@@ -47,6 +47,49 @@
                 max-width: 300px;
                 transition: transform 0.5s ease;
             } */
+
+            @keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in {
+    from {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-in-out;
+}
+
+.animate-slide-up {
+    animation: slide-up 1s ease-in-out;
+}
+
+.animate-bounce-in {
+    animation: bounce-in 0.5s ease-in-out;
+}
     </style>
 </head>
 <body>
@@ -107,22 +150,38 @@
                 {{-- @livewire('hero-section.testimoni') --}}
             </section>
     
-            <section id="promo-umkm" class="relative py-16 text-white text-center overflow-hidden">
+            <section id="promo-umkm" class="relative py-20 text-white text-center overflow-hidden">
                 <!-- Gambar latar belakang -->
-                <img src="{{ asset('images/wahana.jpg') }}" 
-                    alt="Promo UMKM" 
-                    class="absolute inset-0 w-full h-full object-cover z-0" />
-
-                <!-- Overlay untuk gradient -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60 z-10"></div>
-                
+                <div class="absolute inset-0 w-full h-full">
+                    <img 
+                        src="{{ asset('images/wahana2.jpg') }}" 
+                        alt="Promo UMKM" 
+                        class="w-full h-full object-cover z-0 brightness-50" />
+                    <!-- Overlay untuk gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+                </div>
+            
                 <!-- Konten -->
-                <div class="container mx-auto px-6 relative z-20">
-                    <h2 class="text-4xl font-bold mb-4">Promosi Produk UMKM</h2>
-                    <p class="text-lg mb-8">Dukung produk lokal dan temukan berbagai produk menarik dari UMKM di sekitar Anda.</p>
-                    <a href="/toko" class="inline-block bg-white text-green-700 font-semibold py-3 px-6 rounded-md hover:bg-gray-200 transition duration-300">Kunjungi Toko</a>
+                <div class="relative z-10 container mx-auto px-6 flex flex-col items-center">
+                    <h2 class="text-5xl font-extrabold mb-6 tracking-wide leading-tight drop-shadow-lg animate-fade-in">
+                        Dukung Lokal, Pilih yang Spesial!
+                    </h2>
+                    <p class="text-lg mb-8 max-w-2xl drop-shadow-lg animate-slide-up">
+                        Temukan ragam produk unik dari UMKM terbaik di sekitar Anda. Dengan setiap pembelian, Anda turut mendukung mimpi besar pelaku usaha lokal. Saatnya bangga memakai produk karya anak bangsa!
+                    </p>
+                    <a 
+                        href="/toko" 
+                        class="inline-block bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300 animate-bounce-in">
+                        Kunjungi Toko
+                    </a>
+                </div>
+            
+                <!-- Efek animasi tambahan -->
+                <div class="absolute bottom-0 left-0 w-full flex justify-center overflow-hidden">
+                    <div class="w-96 h-96 bg-green-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
                 </div>
             </section>
+            
 
 
 
